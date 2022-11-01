@@ -20,6 +20,8 @@ struct TGA_Header {
 };
 #pragma pack(pop)
 
+
+
 struct TGAColor {
     unsigned char bgra[4];
     unsigned char bytespp;
@@ -50,8 +52,6 @@ struct TGAColor {
         }
     }
 
-    unsigned char& operator[](const int i) { return bgra[i]; }
-
     TGAColor operator *(float intensity) const {
         TGAColor res = *this;
         intensity = (intensity>1.f?1.f:(intensity<0.f?0.f:intensity));
@@ -59,6 +59,7 @@ struct TGAColor {
         return res;
     }
 };
+
 
 class TGAImage {
 protected:
@@ -95,4 +96,3 @@ public:
 };
 
 #endif //__IMAGE_H__
-
