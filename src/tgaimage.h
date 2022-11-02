@@ -20,8 +20,6 @@ struct TGA_Header {
 };
 #pragma pack(pop)
 
-
-
 struct TGAColor {
     unsigned char bgra[4];
     unsigned char bytespp;
@@ -62,7 +60,6 @@ struct TGAColor {
     }
 };
 
-
 class TGAImage {
 protected:
     unsigned char* data;
@@ -95,6 +92,7 @@ public:
     int get_bytespp();
     unsigned char *buffer();
     void clear();
+    void gaussian_blur(const int radius);
 };
 
 #endif //__IMAGE_H__
